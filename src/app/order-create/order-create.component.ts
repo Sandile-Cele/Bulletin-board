@@ -12,4 +12,8 @@ export class OrderCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onAddOrder(){
+    alert ('Order Created!');
+  }
+
 }
