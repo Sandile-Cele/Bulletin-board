@@ -6,6 +6,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { OrderCreateComponent } from './order-create/order-create.component';
@@ -25,7 +26,8 @@ import { OrderPlacedComponent } from './order-placed/order-placed.component';
       MatSliderModule,
       MatInputModule,
       MatCardModule,
-      MatButtonModule
+      MatButtonModule,
+        MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

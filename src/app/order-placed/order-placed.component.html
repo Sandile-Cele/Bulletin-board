@@ -1,1 +1,9 @@
-<p>order-placed works!</p>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let oneData of expenstionData">
+    <mat-expansion-panel-header >
+      {{oneData.userName}}
+    </mat-expansion-panel-header>
+    {{oneData.order}}
+  </mat-expansion-panel>
+
+</mat-accordion>
