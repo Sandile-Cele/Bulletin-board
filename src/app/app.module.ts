@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
-
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { OrderCreateComponent } from './order-create/order-create.component';
@@ -18,9 +20,10 @@ import { OrderCreateComponent } from './order-create/order-create.component';
     BrowserModule,
       FormsModule,
       BrowserAnimationsModule,
-      // MatInputModule,
-      // MatCardModule,
-      // MatButtonModule
+      MatSliderModule,
+      MatInputModule,
+      MatCardModule,
+      MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
