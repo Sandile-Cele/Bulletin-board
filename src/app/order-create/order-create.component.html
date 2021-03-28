@@ -1,7 +1,7 @@
 <h5>Create your order here please</h5>
 
 <form name = "login">
-  <input type = "text" name="userName" placeholder="userName">
+  <input type = "text" [(ngModel)]="userName" name="userName" placeholder="userName">
   <br>
   <input type = "email" name="emailAddress" placeholder="emailAddress">
   <br>
@@ -11,3 +11,4 @@
 
 <button style="margin-left: 20px;" (click)="clearText()" >Clear Msg!</button>
 <h6><p>{{newOrder}}</p></h6>
+<h6><p>{{printMsg}}</p></h6>

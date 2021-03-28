@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { OrderCreateComponent } from './order-create/order-create.component';
@@ -10,7 +11,8 @@ import { OrderCreateComponent } from './order-create/order-create.component';
     OrderCreateComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+      FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

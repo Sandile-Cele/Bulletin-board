@@ -3,23 +3,24 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-order-create',
   templateUrl: './order-create.component.html',
-  styleUrls: ['./order-create.component.css']
+  styleUrls: ['./order-create.component.css'],
 })
 export class OrderCreateComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   newOrder = '';
-  onAddOrder(){
-  this.newOrder = 'Order Created';
+  userName = '';
+  printMsg = '';
+
+  onAddOrder() {
+    this.newOrder = 'Order Created';
+    this.printMsg = 'Your username is ' + this.userName;
     // alert ('Order Created!');
   }
 
-  clearText(){
+  clearText() {
     this.newOrder = null;
   }
-
 }
