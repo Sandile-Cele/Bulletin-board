@@ -10,9 +10,11 @@ export class OrderPlacedComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  expenstionData = [
-    { userName: 'First Order', order: 'this is what order1 needs' },
-    { userName: 'Second Order', order: 'this is order number two' },
-    { userName: 'Third Order', order: 'this is order number 3' },
-  ];
+  // expansionData = [
+  //   { userName: 'First Order', order: 'this is what order1 needs' },
+  //   { userName: 'Second Order', order: 'this is order number two' },
+  //   { userName: 'Third Order', order: 'this is order number 3' },
+  // ];
+
+  expansionData = [];
 }

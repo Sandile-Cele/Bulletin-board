@@ -1,5 +1,5 @@
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let oneData of expenstionData">
+<mat-accordion *ngIf="expansionData.length> 0">
+  <mat-expansion-panel *ngFor="let oneData of expensionData">
     <mat-expansion-panel-header >
       {{oneData.userName}}
     </mat-expansion-panel-header>
@@ -7,3 +7,4 @@
   </mat-expansion-panel>
 
 </mat-accordion>
+<p *ngIf="expansionData.length >= 0 ">No orders created yet!</p>
