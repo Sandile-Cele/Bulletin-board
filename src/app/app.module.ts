@@ -9,12 +9,14 @@ import { MatButtonModule} from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { OrderCreateComponent } from './order-create/order-create.component';
+import { OrderPlacedComponent } from './order-placed/order-placed.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderCreateComponent
+    OrderCreateComponent,
+    OrderPlacedComponent
   ],
   imports: [
     BrowserModule,
