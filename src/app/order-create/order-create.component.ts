@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-order-create',
@@ -10,17 +10,25 @@ export class OrderCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  newOrder = '';
-  userName = '';
+  inOrder = '';
+  inUsername = '';
+  inEmail = '';
+
   printMsg = '';
 
+  readonly order = {
+    userName: this.inUsername,
+    email: this.inEmail,
+    order: this.inOrder,
+  };
+  // order-placed.emit(order);
+
   onAddOrder() {
-    this.newOrder = 'Order Created';
-    this.printMsg = 'Your username is ' + this.userName;
+    this.printMsg = 'Order Created!' + ' Your username is ' + this.inUsername;
     // alert ('Order Created!');
   }
 
   clearText() {
-    this.newOrder = null;
+    this.printMsg = null;
   }
 }

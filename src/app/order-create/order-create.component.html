@@ -1,15 +1,15 @@
 <mat-card>
 <form name = "login">
   <mat-form-field>
-    <input matInput type = "text" [(ngModel)]="userName" name="userName" placeholder="Username">
+    <input matInput type = "text" [(ngModel)]="inUsername" name="userName" placeholder="Username">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type = "email" name="emailAddress" placeholder="Email address">
+    <input matInput type = "email" name="inEmail" placeholder="Email address">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea matInput name = "order" placeholder="Order" ></textarea>
+    <textarea matInput name = "inOrder" placeholder="Order" ></textarea>
   </mat-form-field>
 </form>
 </mat-card>
@@ -19,5 +19,4 @@
 
 <button mat-raised-button style="margin-left: 20px;" (click)="clearText()" >Clear Msg!</button>
 
-<h6><p>{{newOrder}}</p></h6>
 <h6><p>{{printMsg}}</p></h6>
