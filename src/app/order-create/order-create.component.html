@@ -1,4 +1,4 @@
-<mat-card style ="width:200px; color:#9b2929" >
+<mat-card>
 <form name = "login">
   <mat-form-field >
     <input matInput type = "text" [(ngModel)]="inUsername" name="userName" placeholder="Username">
@@ -16,6 +16,6 @@
   <br>
 <button mat-raised-button (click)="onAddOrder()" color="primary">Order Now!</button>
 
-<button mat-raised-button color="accent" style="margin-left: 20px;" (click)="clearText()" >Clear Msg!</button>
+<button mat-raised-button color="accent" style="margin-left: 10px;" (click)="clearText()" >Clear Msg!</button>
 
 <h6><p>{{printMsg}}</p></h6>

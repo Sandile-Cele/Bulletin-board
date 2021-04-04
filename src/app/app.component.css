@@ -1,3 +1,6 @@
-body {
-  background-color: rgb(255, 66, 123);
+main{
+  margin-top: 1 rem;
+  width: 60%;
+  margin: auto;
+  text-align: center;
 }
