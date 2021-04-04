@@ -5,11 +5,11 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type = "email" name="inEmail" placeholder="Email address">
+    <input matInput type = "email" [(ngModel)]="inEmail" name="inEmail" placeholder="Email address">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea rows="3" matInput name = "inOrder" placeholder="Order description" ></textarea>
+    <textarea matInput type="text" [(ngModel)]="inOrder" name = "inOrder" placeholder="Order description" rows="3" ></textarea>
   </mat-form-field>
 </form>
 </mat-card>

@@ -11,9 +11,9 @@ export class OrderCreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  inOrder = '';
   inUsername = '';
   inEmail = '';
+  inOrder = '';
 
   printMsg = '';
 
