@@ -7,41 +7,31 @@ import {Order} from '../Order.model';
   styleUrls: ['./order-create.component.css'],
 })
 export class OrderCreateComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
   inUsername = '';
   inEmail = '';
   inOrder = '';
 
   printMsg = '';
 
-  // storedOrders:[Order] = [];
+  constructor() {}
 
-  @Output()orderCreated = new EventEmitter<Order>();
+  ngOnInit(): void {}
+
+  @Output() orderCreated: EventEmitter<any> = new EventEmitter();
+
   onAddOrder() {
-    this.printMsg = 'Order Created!' + ' Your username is ' + this.inUsername;
-    // alert ('Order Created!');
+    this.printMsg = 'Order Created!';
+
     const order = {
     userName: this.inUsername,
     email: this.inEmail,
     order: this.inOrder};
 
-    // this.orderCreateComponent.emit(order);
-  }
-  // onAddOrder(OrderCreated: NgForm) {
-  //   this.printMsg = 'Order Created!' + ' Your username is ' + this.inUsername;
-  //   // alert ('Order Created!');
-  //   const order = {
-  //   userName: this.inUsername,
-  //   email: this.inEmail,
-  //   order: this.inOrder};
-
-  //   // this.orderCreateComponent.emit(order);
-  // }
+    this.orderCreated.emit(order)
+  };
 
   clearText() {
     this.printMsg = null;
   }
+
 }

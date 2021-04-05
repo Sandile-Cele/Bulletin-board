@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'miniLearningNg';
+
+  storedOrders = [];
+
+  onOrderCreated(order){
+    this.storedOrders.push(order);
+  }
 }
