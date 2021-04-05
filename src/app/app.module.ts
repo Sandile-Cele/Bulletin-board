@@ -10,8 +10,8 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
-import { OrderCreateComponent } from './order-create/order-create.component';
-import { OrderPlacedComponent } from './order-placed/order-placed.component';
+import { OrderCreateComponent } from './orders/order-create/order-create.component';
+import { OrderPlacedComponent } from './orders/order-placed/order-placed.component';
 
 
 @NgModule({
