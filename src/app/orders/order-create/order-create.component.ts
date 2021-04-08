@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
-import {Order} from '../../../Order.model';
+import {Order} from '../Order.model';
 
 @Component({
   selector: 'app-order-create',
@@ -11,27 +11,21 @@ export class OrderCreateComponent implements OnInit {
   inEmail = '';
   inOrder = '';
 
-  printMsg = '';
-
   constructor() {}
 
   ngOnInit(): void {}
 
-  @Output() orderCreated: EventEmitter<any> = new EventEmitter();
-
+  @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
   onAddOrder() {
-    this.printMsg = 'Order Created!';
-
-    const order = {
+    const oneOrder: Order = {
     userName: this.inUsername,
     email: this.inEmail,
-    order: this.inOrder};
+    placeOrder: this.inOrder};
 
-    this.orderCreated.emit(order)
+
+    this.orderCreated.emit(oneOrder);
   };
 
-  clearText() {
-    this.printMsg = null;
-  }
+
 
 }

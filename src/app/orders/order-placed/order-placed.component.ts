@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Order } from '../Order.model';
 
 @Component({
   selector: 'app-order-placed',

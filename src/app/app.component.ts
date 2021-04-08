@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Order } from './orders/Order.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'miniLearningNg';
 
-  storedOrders = [];
+  storedOrders:[Order] = [];
 
   onOrderCreated(order){
     this.storedOrders.push(order);
