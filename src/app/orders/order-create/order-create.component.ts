@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 import {Order} from '../Order.model';
 
 @Component({
@@ -7,20 +8,17 @@ import {Order} from '../Order.model';
   styleUrls: ['./order-create.component.css'],
 })
 export class OrderCreateComponent implements OnInit {
-  inUsername = '';
-  inEmail = '';
-  inOrder = '';
 
   constructor() {}
 
   ngOnInit(): void {}
 
   @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
-  onAddOrder() {
+  onAddOrder(Orderform: NgForm) {
     const oneOrder: Order = {
-    userName: this.inUsername,
-    email: this.inEmail,
-    placeOrder: this.inOrder};
+    userName: Orderform.value.inUsername,
+    email: Orderform.value.inEmail,
+    placeOrder: Orderform.value.inOrder};
 
 
     this.orderCreated.emit(oneOrder);

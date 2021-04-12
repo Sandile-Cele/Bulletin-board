@@ -1,19 +1,20 @@
 <mat-card>
-<form name = "login">
+  <p>Create order</p>
+<form name = "login" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field >
-    <input matInput type = "text" [(ngModel)]="inUsername" name="userName" placeholder="Username">
+    <input matInput type = "text" ngModel name="userName" placeholder="Username">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type = "email" [(ngModel)]="inEmail" name="inEmail" placeholder="Email address">
+    <input matInput type = "email" ngModel name="inEmail" placeholder="Email address">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea matInput type="text" [(ngModel)]="inOrder" name = "inOrder" placeholder="Order description" rows="3" ></textarea>
+    <textarea matInput type="text" ngModel name = "inOrder" placeholder="Order description" rows="3" ></textarea>
   </mat-form-field>
+
+  <button mat-raised-button type="submit" color="primary">Order Now!</button>
 </form>
 </mat-card>
-  <br>
-<button mat-raised-button (click)="onAddOrder()" color="primary">Order Now!</button>
 
-<button mat-raised-button color="accent" style="margin-left: 10px;" (click)="clearText()" >Clear Msg!</button>
+<button mat-raised-button color="accent" style="margin-left: 10px;" >Clear Msg!</button>
