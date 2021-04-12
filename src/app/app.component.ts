@@ -9,7 +9,7 @@ import { Order } from './orders/Order.model';
 export class AppComponent {
   title = 'miniLearningNg';
 
-  storedOrders:[Order] = [];
+  storedOrders:Order[] = [];
 
   onOrderCreated(order){
     this.storedOrders.push(order);

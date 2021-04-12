@@ -2,11 +2,11 @@
   <p>Create order</p>
 <form name = "login" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field >
-    <input matInput type = "text" ngModel name="userName" placeholder="Username">
+    <input matInput type="text" ngModel name="inUsername" placeholder="Username">
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type = "email" ngModel name="inEmail" placeholder="Email address">
+    <input matInput type="email" ngModel name="inEmail" placeholder="Email address">
   </mat-form-field>
   <br>
   <mat-form-field>
@@ -16,5 +16,3 @@
   <button mat-raised-button type="submit" color="primary">Order Now!</button>
 </form>
 </mat-card>
-
-<button mat-raised-button color="accent" style="margin-left: 10px;" >Clear Msg!</button>

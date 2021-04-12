@@ -20,7 +20,6 @@ export class OrderCreateComponent implements OnInit {
     email: Orderform.value.inEmail,
     placeOrder: Orderform.value.inOrder};
 
-
     this.orderCreated.emit(oneOrder);
   };
 

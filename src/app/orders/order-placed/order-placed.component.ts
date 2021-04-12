@@ -13,6 +13,4 @@ export class OrderPlacedComponent implements OnInit {
 
   @Input() orders:Order[] = [];
 
-  // @Input() orders2 = new Array<Order>();
-
 }
