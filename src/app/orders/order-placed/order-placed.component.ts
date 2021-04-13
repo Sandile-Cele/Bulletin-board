@@ -7,16 +7,21 @@ import { OrderService } from '../order.service';
   templateUrl: './order-placed.component.html',
   styleUrls: ['./order-placed.component.css'],
 })
+
 export class OrderPlacedComponent implements OnInit, OnDestroy {
+  orders:Order[] = [];//@Input()
+
   constructor(public orderService: OrderService) {}
 
   ngOnInit(){
-
+    this.orders = this.orderService.getOrders();
   }
   ngOnDestroy(){
 
   }
 
-  @Input() orders:Order[] = [];
+
+
 
 }
+

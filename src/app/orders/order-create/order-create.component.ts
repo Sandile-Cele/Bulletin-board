@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Order} from '../Order.model';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-order-create',
@@ -18,6 +19,9 @@ export class OrderCreateComponent implements OnInit {
   ngOnInit(): void {}
 
   @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
+
+  public orderService: OrderService;
+
   onAddOrder(Orderform: NgForm) {
 
 
@@ -30,7 +34,9 @@ export class OrderCreateComponent implements OnInit {
     email: Orderform.value.inEmail,
     placeOrder: Orderform.value.inOrder};
 
-    this.orderCreated.emit(oneOrder);
+    //this.orderCreated.emit(oneOrder);
+
+    this.orderService.setOrders(oneOrder);
   };
 
 
