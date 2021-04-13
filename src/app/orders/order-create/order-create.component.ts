@@ -8,6 +8,9 @@ import {Order} from '../Order.model';
   styleUrls: ['./order-create.component.css'],
 })
 export class OrderCreateComponent implements OnInit {
+  inUsernameError = 'Username must be > 4 and < 12';
+  inEmailError = 'Make sure email is in the correct format';
+  inOrderError = 'Order must be <50 characters';
 
   constructor() {}
 
@@ -15,6 +18,11 @@ export class OrderCreateComponent implements OnInit {
 
   @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
   onAddOrder(Orderform: NgForm) {
+
+    if(Orderform.invalid){
+      return;
+    }
+
     const oneOrder: Order = {
     userName: Orderform.value.inUsername,
     email: Orderform.value.inEmail,

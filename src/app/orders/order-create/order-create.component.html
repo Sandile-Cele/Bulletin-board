@@ -2,17 +2,21 @@
   <p>Create order</p>
 <form name = "login" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field >
-    <input matInput type="text" ngModel name="inUsername" placeholder="Username">
+    <input matInput required type="text" ngModel name="inUsername" minlength="4" maxlength="12" #inUsernameErrorz="ngModel" placeholder="Username"/>
+    <mat-error *ngIf="inUsernameErrorz.invalid">{{inUsernameError}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type="email" ngModel name="inEmail" placeholder="Email address">
+    <input required matInput  type="email" ngModel name="inEmail" #inEmailErrorz="ngModel" pattern=^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$ placeholder="Email address">
+    <mat-error *ngIf="inEmailErrorz.invalid">{{inEmailError}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea matInput type="text" ngModel name = "inOrder" placeholder="Order description" rows="3" ></textarea>
+    <textarea matInput required type="text" ngModel name="inOrder" #inOrderErrorz="ngModel" maxlength="50" minlength="3" placeholder="Order description" rows="3" ></textarea>
+    <mat-error *ngIf="inOrderErrorz.invalid">{{inOrderError}}</mat-error>
   </mat-form-field>
-
+  <br>
   <button mat-raised-button type="submit" color="primary">Order Now!</button>
+
 </form>
 </mat-card>
