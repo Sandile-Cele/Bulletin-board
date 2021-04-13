@@ -14,31 +14,38 @@ export class OrderCreateComponent implements OnInit {
   inEmailError = 'Make sure email is in the correct format';
   inOrderError = 'Order must be <50 characters';
 
-  constructor() {}
+
+  constructor(public orderService: OrderService) {
+
+  }
 
   ngOnInit(): void {}
 
-  @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
-
-  public orderService: OrderService;
 
   onAddOrder(Orderform: NgForm) {
-
 
     if(Orderform.invalid){
       return;
     }
 
-    const oneOrder: Order = {
-    userName: Orderform.value.inUsername,
-    email: Orderform.value.inEmail,
-    placeOrder: Orderform.value.inOrder};
+    var oneOrder: Order = { userName: Orderform.value.inUsername,
+      email: Orderform.value.inEmail,
+      orderDec: Orderform.value.inOrder};
 
-    //this.orderCreated.emit(oneOrder);
-
-    this.orderService.setOrders(oneOrder);
-  };
-
-
+    this.orderService.setOrders(oneOrder)
+  }
 
 }
+
+  //Not in use anymore, using service now
+  // @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
+
+  // const oneOrder: Order = {
+  //   userName: Orderform.value.inUsername,
+  //   email: Orderform.value.inEmail,
+  //   placeOrder: Orderform.value.inOrder};
+
+  //   //this.orderCreated.emit(oneOrder);
+
+  //   this.orderService.setOrders(oneOrder);
+  // };
