@@ -14,13 +14,11 @@ export class OrderCreateComponent implements OnInit {
   inEmailError = 'Make sure email is in the correct format';
   inOrderError = 'Order must be <50 characters';
 
-
   constructor(public orderService: OrderService) {
 
   }
 
   ngOnInit(): void {}
-
 
   onAddOrder(Orderform: NgForm) {
 

@@ -11,22 +11,23 @@ import { OrderService } from '../order.service';
 
 export class OrderPlacedComponent implements OnInit, OnDestroy {
   orders:Order[] = [];//@Input()
-  private orderSubscription: Subscription;
 
   constructor(public orderService: OrderService) {}
+  ordersSubscription: Subscription;
 
   ngOnInit(){
     this.orders = this.orderService.getOrders();
-    // this.orderSubscription = this.orderService.getPostUpdateLister()
-    //   .subscribe((orders: Order[]) =>
-    //   {
-    //      this.orders = orders
-    //   });
+
+    this.ordersSubscription = this.orderService.getPostUpdateLister()
+      .subscribe((orders: Order[]) =>
+      {
+         this.orders = orders
+      });
 
   }
 
   ngOnDestroy(){
-
+    this.ordersSubscription.unsubscribe();
   }
 
 
