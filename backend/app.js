@@ -18,7 +18,7 @@ app.use('/api/orders', (req, res, next) => {
       orderDec: 'Lemon pie cake from server'
     }
   ]
-    res.json({ messages: 'Orders retrieved from server successfully', orders: orders });
+    res.json({ messages: 'Orders retrieved from server successf ully', orders: orders });
 
   });
 
