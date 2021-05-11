@@ -5,7 +5,16 @@
     </mat-expansion-panel-header>
     {{oneData.email}}
     {{oneData.orderDec}}
+
+    <mat-action-row>
+      <button mat-button color="accent">Edit</button>
+      <button mat-button color="warn">Delete</button>
+
+    </mat-action-row>
+
   </mat-expansion-panel>
+
+
 
 </mat-accordion>
 <h2 *ngIf="orders.length <= 0 ">No orders created!</h2>

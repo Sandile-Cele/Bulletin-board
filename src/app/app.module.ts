@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { OrderCreateComponent } from './orders/order-create/order-create.component';
 import { OrderPlacedComponent } from './orders/order-placed/order-placed.component';
 
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OrderPlacedComponent } from './orders/order-placed/order-placed.compone
       MatInputModule,
       MatCardModule,
       MatButtonModule,
-      MatExpansionModule
+      MatExpansionModule,
+      HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

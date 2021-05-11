@@ -2,6 +2,14 @@ const express = require("express");
 
 const app = express();
 
+app.use((req, res, next) =>
+{
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader("Access-Control-Allow-Headers", "GET", "POST", "OPTIONS", "PATCH", "DELETE");
+  next();
+});
+
 app.use('/api/orders', (req, res, next) => {
 
   const orders = [
@@ -18,16 +26,9 @@ app.use('/api/orders', (req, res, next) => {
       orderDec: 'Lemon pie cake from server'
     }
   ]
-    res.json({ messages: 'Orders retrieved from server successf ully', orders: orders });
+    res.json({ messages: 'Orders retrieved from server successfully', orders: orders });
 
   });
-
-
-  //   res.send(
-  //     "I'm the first middle ware, if I use next I will call the second, if not nada will happen"
-  //   );
-  //   next();
-  // });
 
   app.use((req, res, next) => {
     console.log(

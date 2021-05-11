@@ -2,7 +2,7 @@
   <p>Create order</p>
 <form name = "login" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field >
-    <input matInput required type="text" ngModel name="inUsername" minlength="4" maxlength="12" #inUsernameErrorz="ngModel" pattern="^[a-zA-Z0-9\_s]+$" placeholder="Username"/>
+    <input matInput required type="text" ngModel name="inUsername" minlength="4" maxlength="12" #inUsernameErrorz="ngModel" pattern="^[a-zA-Z0-9\_s]+$" placeholder="Username" value="someone"/>
     <mat-error *ngIf="inUsernameErrorz.invalid">{{inUsernameError}}</mat-error>
   </mat-form-field>
   <br>
