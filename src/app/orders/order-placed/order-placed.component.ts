@@ -17,8 +17,8 @@ export class OrderPlacedComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     // this.orders = this.orderService.getOrders();
-
     this.orderService.getOrders();
+
     this.ordersSubscription = this.orderService.getPostUpdateLister()
       .subscribe((orders: Order[]) =>
       {
