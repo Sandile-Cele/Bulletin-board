@@ -1,6 +1,6 @@
 export interface Order{
   id: String;
-  userName: String;
+  username: String;
   email: String;
   orderDec: String;
 }

@@ -26,7 +26,7 @@ export class OrderCreateComponent implements OnInit {
       return;
     }
 
-    var oneOrder: Order = {id:null, userName: Orderform.value.inUsername,
+    var oneOrder: Order = {id:null, username: Orderform.value.inUsername,
       email: Orderform.value.inEmail,
       orderDec: Orderform.value.inOrder};
 

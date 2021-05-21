@@ -16,7 +16,7 @@ export class OrderService{
     // this.orders.push(inOrder);
     // this.updatedOrders.next([...this.orders]);
     const order: Order = inOrder;//The guide sets each var here
-    console.log(order.userName);
+    console.log(order.username);
     this.http.post<{message: string}>('https://localhost:3000/api/orders', order)
       .subscribe((responseOrderData)=>{
         // console.log(responseOrderData.message);

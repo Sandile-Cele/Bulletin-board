@@ -5,14 +5,17 @@ const app = express();
 const Order = require("./model/order");
 const mongoose = require("mongoose");
 const fs = require("fs");
-const cert = fs.readFileSync('Keys/certificate.pem');
+
+const cert = fs.readFileSync("Keys/certificate.pem");
 const options = {
   server: {sslCA: cert}
 };
 
-// app.use(bodyParser.json());
-app.use(express.json());
-app.use(express.urlencoded());
+const order = require("./model/order")
+
+
+app.use(express.json()); //Because app.use(bodyParser.json());...
+app.use(express.urlencoded());//...is deprecated
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -24,6 +27,18 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/api/orders", (req, res, next) =>
+{
+  order.find().then((documents)=>
+  {
+    res.json(
+      {
+      messages: "Orders retrieved successfully",
+      orders:documents
+    });
+  });
+});
+
 app.use("/api/orders", (req, res, next) => {
   //const orders = req.body; //has been removed!
   const orders = new Order({
@@ -31,6 +46,8 @@ app.use("/api/orders", (req, res, next) => {
     email: req.body.email,
     orderDec: req.body.orderDec,
   });
+
+  orders.save();
 
   console.log("order created:" + orders);
 
