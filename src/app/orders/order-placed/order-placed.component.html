@@ -1,7 +1,8 @@
 <mat-accordion *ngIf="orders.length > 0">
   <mat-expansion-panel *ngFor="let oneData of orders" >
     <mat-expansion-panel-header >
-      {{oneData.username}}
+        <p>{{oneData.username}}, ID: {{oneData.id}}</p>
+
     </mat-expansion-panel-header>
     {{oneData.orderDec}}
     <br/>
