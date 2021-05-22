@@ -1,4 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+Keys
+/Keys
+/Keys/*
 
 # compiled output
 /dist
@@ -32,7 +35,6 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
-Keys
 .gitignore
 /.sass-cache
 /connect.lock
