@@ -57,9 +57,7 @@ export class OrderService{
     )
     .subscribe((changedOrders)=>{
       this.message = changedOrders;
-      console.log("message:"+ this.message)
       this.orders = changedOrders;
-      console.log("Here are the order from map:"+ this.orders)
       this.updatedOrders.next([...this.orders]);
     });
   }
