@@ -32,7 +32,7 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
-Keys
+Keys/*
 .gitignore
 /.sass-cache
 /connect.lock

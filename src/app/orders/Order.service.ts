@@ -2,6 +2,7 @@ import {Order} from './Order.model';
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {map} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class OrderService{
@@ -28,7 +29,6 @@ export class OrderService{
   }
 
   getOrders(){
-    // return [...this.orders];
     this.http.get<{message: string, orders: any}>('https://localhost:3000/api/orders')
     .subscribe((orderData)=>{
       this.orders = orderData.orders;
@@ -37,8 +37,39 @@ export class OrderService{
     });
   }
 
+  // getOrders(){
+  //   // return [...this.orders];
+  //   this.http.get<{message: string, orders: any}>('https://localhost:3000/api/orders')
+  //   .pipe(map((orderData)=>
+  //   {
+  //     return orderData.orders.map(order=>{
+  //         return{
+  //           username: order.username,
+  //           email: order.email,
+  //           orderDec: order.orderDec,
+  //           id: order._id
+  //         };
+  //       });
+  //   }))
+  //   .subscribe((changedOrders)=>{
+  //     this.orders = changedOrders.orders;
+  //     this.updatedOrders.next([...this.orders]);
+  //   });
+  // }
+
+  deleteOrder(orderId: string){
+    this.http.delete('https://localhost:3000/api/orders' + orderId)
+    .subscribe(()=>{
+      const updatedOrdersDel = this.orders.filter(order => order.id!== orderId);
+      this.orders = updatedOrdersDel;
+      this.updatedOrders.next([...this.orders]);
+      console.log("Order deleted!");
+    });
+  }
+
   getPostUpdateLister(){
     return this.updatedOrders.asObservable();
   }
+
 
 }

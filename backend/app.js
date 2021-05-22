@@ -2,7 +2,7 @@ console.log("server has started");
 const express = require("express");
 // const bodyParser = require("body-parser"); //This deprecated
 const app = express();
-const Order = require("./model/order");
+const order = require("./model/order");
 const mongoose = require("mongoose");
 const fs = require("fs");
 
@@ -10,9 +10,6 @@ const cert = fs.readFileSync("Keys/certificate.pem");
 const options = {
   server: {sslCA: cert}
 };
-
-const order = require("./model/order")
-
 
 app.use(express.json()); //Because app.use(bodyParser.json());...
 app.use(express.urlencoded());//...is deprecated
@@ -58,7 +55,7 @@ app.use("/api/orders", (req, res, next) => {
 
 app.use((req, res, next) => {
   console.log(
-    "This is the final part of the middleware."
+    "Backend done!"
   );
 });
 
