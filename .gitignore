@@ -1,7 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-Keys
-/Keys
-/Keys/*
+keys/*
+.vscode
 
 # compiled output
 /dist
@@ -35,7 +34,11 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
+<<<<<<< HEAD
+=======
+Keys
 .gitignore
+>>>>>>> mongoDb
 /.sass-cache
 /connect.lock
 /coverage
@@ -48,4 +51,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+=======
 
+>>>>>>> mongoDb
