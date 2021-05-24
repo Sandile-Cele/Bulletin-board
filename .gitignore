@@ -1,6 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+<<<<<<< HEAD
 keys/*
 .vscode
+=======
+>>>>>>> parent of b5052c8 (git update)
 
 # compiled output
 /dist
@@ -35,7 +38,10 @@ speed-measure-plugin*.json
 
 # misc
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of b5052c8 (git update)
 Keys
 .gitignore
 >>>>>>> mongoDb
