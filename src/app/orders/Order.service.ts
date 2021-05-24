@@ -28,19 +28,9 @@ export class OrderService{
 
   }
 
-  //This works!!!, without mapping
-  // getOrders(){
-  //   this.http.get<{message: string, orders: any}>('https://localhost:3000/api/orders')
-  //   .subscribe((orderData)=>{
-  //     this.orders = orderData.orders;
-  //     this.message = orderData.message;
-  //     this.updatedOrders.next([...this.orders]);
-  //   });
-  // }
-
-  //With mapping
   getOrders(){
     this.http.get<{message: string, orders: any}>('https://localhost:3000/api/orders')
+<<<<<<< HEAD
     .pipe(
       map((res: {message: string; orders: any;}) =>
       res.orders.map((data: any) => {
@@ -58,10 +48,34 @@ export class OrderService{
     .subscribe((changedOrders)=>{
       this.message = changedOrders;
       this.orders = changedOrders;
+=======
+    .subscribe((orderData)=>{
+      this.orders = orderData.orders;
+      this.message = orderData.message;
+>>>>>>> parent of dcc4039 (mapped json to my local object!)
       this.updatedOrders.next([...this.orders]);
     });
   }
 
+  // getOrders(){
+  //   // return [...this.orders];
+  //   this.http.get<{message: string, orders: any}>('https://localhost:3000/api/orders')
+  //   .pipe(map((orderData)=>
+  //   {
+  //     return orderData.orders.map(order=>{
+  //         return{
+  //           username: order.username,
+  //           email: order.email,
+  //           orderDec: order.orderDec,
+  //           id: order._id
+  //         };
+  //       });
+  //   }))
+  //   .subscribe((changedOrders)=>{
+  //     this.orders = changedOrders.orders;
+  //     this.updatedOrders.next([...this.orders]);
+  //   });
+  // }
 
   deleteOrder(orderId: string){
     this.http.delete('https://localhost:3000/api/orders' + orderId)
