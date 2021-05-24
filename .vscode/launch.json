@@ -25,15 +25,39 @@
       "cwd": "${workspaceFolder}"
     }
   ]
-}
 =======
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-      
->>>>>>> parent of 76c24ad (accept user input through post)
+    
+
+
+      {
+        "name": "Launch Chrome",
+        "request": "launch",
+        "type": "pwa-chrome",
+        "url": "http://localhost:4200",
+        "webRoot": "${workspaceFolder}"
+      },
+
+      {
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "name": "nodemon",
+        "program": "${workspaceFolder}\\backend\\app.js",
+        "request": "launch",
+        "restart": true,
+        "runtimeExecutable": "nodemon",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "pwa-node"
+      }
+    ]
+>>>>>>> parent of 31d5d90 (connected to mongoDb)
+}
 
 
 //  "command": "npm run serve --ssl true --ssl-cert \"Keys\\certificate.pem\" --ssl-key \"Keys\\privatekey.pem\" --open",
