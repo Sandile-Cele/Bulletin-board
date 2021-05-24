@@ -1,11 +1,18 @@
 console.log("server has started");
 const express = require("express");
-const bodyParser = require("body-parser");
-const Order = require("./model/order");
-
+// const bodyParser = require("body-parser"); //This deprecated
 const app = express();
+const order = require("./model/order");
+const mongoose = require("mongoose");
+const fs = require("fs");
 
-app.use(bodyParser.json());
+const cert = fs.readFileSync("Keys/certificate.pem");
+const options = {
+  server: {sslCA: cert}
+};
+
+app.use(express.json()); //Because app.use(bodyParser.json());...
+app.use(express.urlencoded());//...is deprecated
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -48,7 +55,7 @@ app.use("/api/orders", (req, res, next) => {
 
 app.use((req, res, next) => {
   console.log(
-    "This response is being sent by middle ware called by \nthe previous middle ware using next"
+    "Backend done!"
   );
 });
 
