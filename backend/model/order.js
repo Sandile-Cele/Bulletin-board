@@ -6,11 +6,9 @@ const orderSchema = mongoose.Schema({
   orderDec: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Order", orderSchema);
-
 mongoose
   .connect(
-    "mongodb+srv://user_01:r8UCZ8wwHH6ZtJx@cluster0.bunvx.mongodb.net/orders?retryWrites=true&w=majority",  {useNewUrlParser: true, useUnifiedTopology: true}
+    "mongodb+srv://user_01:r8UCZ8wwHH6ZtJx@cluster0.bunvx.mongodb.net/orders?retryWrites=true&w=majority",  {useNewUrlParser: true, useUnifiedTopology: true, }
   )
   .then(() => {
     console.log("connected to DB successsfully! YAY!");
@@ -18,3 +16,6 @@ mongoose
   .catch(() => {
     console.log("Could not connect to DB!");
   });
+
+module.exports = mongoose.model("Order", orderSchema);
+

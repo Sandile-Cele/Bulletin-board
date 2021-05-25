@@ -2,29 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome",
-      "request": "launch",
-      "type": "chrome",
-      "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}"
-    },
-
-    {
-      "type": "node-terminal",
       "name": "node Server",
+      "type": "node-terminal",
       "request": "launch",
       "command": "npm run start:server",
       "cwd": "${workspaceFolder}"
     },
     {
-      "type": "node-terminal",
       "name": "ng Serve",
+      "type": "node-terminal",
       "request": "launch",
-      "command": "npm run serve",
+      "command": "npm serve --ssl true --ssl-cert\"Keys\\certificate.pem\" --ssl-key\"Keys\\privatekey.pem\" --open",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "---Built in---"
     }
   ]
 }
-
-
-//  "command": "npm run serve --ssl true --ssl-cert \"Keys\\certificate.pem\" --ssl-key \"Keys\\privatekey.pem\" --open",
