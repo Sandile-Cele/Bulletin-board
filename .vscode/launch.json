@@ -2,17 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node-terminal",
       "name": "node Server",
+      "type": "node-terminal",
       "request": "launch",
       "command": "npm run start:server",
-      "cwd": "${workspaceFolder}/scr"
+      "cwd": "${workspaceFolder}"
     },
     {
-      "type": "node-terminal",
       "name": "ng Serve",
+      "type": "node-terminal",
       "request": "launch",
-      "command": "ng serve --ssl true --ssl-cert \"Keys\\certificate.pem\" --ssl-key \"Keys\\privatekey.pem\" --open",
+      "command": "npm serve --ssl true --ssl-cert\"Keys\\certificate.pem\" --ssl-key\"Keys\\privatekey.pem\" --open",
       "cwd": "${workspaceFolder}"
     },
     {
@@ -21,6 +21,9 @@
       "type": "pwa-chrome",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "---Built in---"
     }
   ]
 }

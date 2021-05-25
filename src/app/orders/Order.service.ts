@@ -14,14 +14,15 @@ export class OrderService{
 
 
   setOrders(inOrder: Order){//The lab accepts each var here, by I take in the whole order
-    // this.orders.push(inOrder);
+    //this.orders.push(inOrder);
     // this.updatedOrders.next([...this.orders]);
     const order: Order = inOrder;//The guide sets each var here
-    console.log(order.username);
-    this.http.post<{message: string}>('https://localhost:3000/api/orders', order)
+    console.log("This is being posted!"+order.email+" and "+order.orderDec+"...");
+    this.http.post<{message: string, orderId: string}>('https://localhost:3000/api/orders', order)
       .subscribe((responseOrderData)=>{
-        // console.log(responseOrderData.message);
-        // order.id = 'asdf';
+        console.log("This is the message: " + responseOrderData.message);
+        const id = responseOrderData.orderId;
+        order.id = id;
         this.orders.push(order);
         this.updatedOrders.next([...this.orders]);
       });
@@ -50,26 +51,6 @@ export class OrderService{
       this.updatedOrders.next([...this.orders]);
     });
   }
-
-  // getOrders(){
-  //   // return [...this.orders];
-  //   this.http.get<{message: string, orders: any}>('https://localhost:3000/api/orders')
-  //   .pipe(map((orderData)=>
-  //   {
-  //     return orderData.orders.map(order=>{
-  //         return{
-  //           username: order.username,
-  //           email: order.email,
-  //           orderDec: order.orderDec,
-  //           id: order._id
-  //         };
-  //       });
-  //   }))
-  //   .subscribe((changedOrders)=>{
-  //     this.orders = changedOrders.orders;
-  //     this.updatedOrders.next([...this.orders]);
-  //   });
-  // }
 
   deleteOrder(orderId: string){
     this.http.delete('https://localhost:3000/api/orders' + orderId)
