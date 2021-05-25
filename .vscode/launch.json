@@ -12,7 +12,7 @@
       "name": "ng Serve",
       "type": "node-terminal",
       "request": "launch",
-      "command": "npm serve --ssl true --ssl-cert\"Keys\\certificate.pem\" --ssl-key\"Keys\\privatekey.pem\" --open",
+      "command": "npm run serve --ssl true --ssl-cert\"Keys\\certificate.pem\" --ssl-key\"Keys\\privatekey.pem\" --open",
       "cwd": "${workspaceFolder}"
     },
     {
