@@ -16,7 +16,7 @@ export class OrderService{
   {
     const order: Order = inOrder;
     console.log("Id:"+order.id+"| Username: " +order.username+ "| email:"+ order.email+"| Order:"+ order.orderDec);
-    this.http.post<{message: String, orderId: string}>('https://localhost:3000/api', JSON.stringify("order"))
+    this.http.post<{message: String, orderId: string}>('https://localhost:3000/api', order)
     .subscribe((responseOrderData)=>{
       console.log(responseOrderData.message);
       const id = responseOrderData.orderId;
@@ -24,7 +24,6 @@ export class OrderService{
       this.orders.push(order);
       this.updatedOrders.next([...this.orders]);
     });
-
   }
 
   //MY CODE

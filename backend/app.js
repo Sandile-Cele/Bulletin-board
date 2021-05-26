@@ -50,6 +50,12 @@ app.get("/api/orders", (req, res, next) =>
 
 app.post('/api/orders',(req,res,next)=>
 {
+  console.log("---Post has been hit!---");
+  console.log(req.body);
+  console.log(req.body.id);
+  console.log(req.body.username);
+  console.log(req.body.email);
+  console.log(req.body.order);
   const orders = new Order(
     {
       userName: req.body.userName,
