@@ -31,7 +31,9 @@ export class OrderPlacedComponent implements OnInit, OnDestroy {
     this.ordersSubscription.unsubscribe();
   }
 
-
+  onDelete(id: String){
+    this.orderService.deleteOrder(id);
+  }
 
 
 }

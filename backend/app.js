@@ -11,6 +11,16 @@ const options = {
   server: {sslCA: cert}
 };
 
+mongoose
+  .connect("mongodb+srv://user_01:r8UCZ8wwHH6ZtJx@cluster0.bunvx.mongodb.net/orders?retryWrites=true&w=majority",  {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => {
+    console.log("successsfully connected to MongoDb YAY!");
+  })
+  .catch(() => {
+    console.log("Could not connect to DB!");
+  }),
+  options;
+
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -22,14 +32,15 @@ app.use((req, res, next) => {
 app.use(express.json()); //Because app.use(bodyParser.json());...
 app.use(express.urlencoded({extended: false}));//...is deprecated
 
+
+
 app.get("/api/orders", (req, res, next) =>
 {
+  console.log("Getting orders...");
   order.find().then((documents)=>
   {
     res.json(
-
 //The problem to get orders, might be to change orders to 'O'rders
-
       {
       messages: "Orders retrieved successfully",
       orders:documents
@@ -37,26 +48,46 @@ app.get("/api/orders", (req, res, next) =>
   });
 });
 
-app.post("/api/orders", (req, res, next) => {
-  const newOrder = new Order({
-    username: req.body.username,
-    email: req.body.email,
-    orderDec: req.body.orderDec,
-  });
-  console.log("order created:" + req.body);
-
-  newOrder.save();
-
-  console.log("order created:" + newOrder);
-
+app.post('/api/orders',(req,res,next)=>
+{
+  const orders = new Order(
+    {
+      userName: req.body.userName,
+      Email: req.body.Email,
+      PlacedOder: req.body.PlacedOder
+    }
+  );
+  orders.save();
+  console.log(orders);
   res.status(201).json({
-    messages: "Post successfully created!",
+    message:'Order Successfully created'
   });
 });
 
+// app.post('/api/orders', (req, res)=>
+// {
+//   console.log("---POST method has been hit!---");
+//   console.log(req.body);
+//   console.log(req.body.username);
+//   console.log(req.body.email);
+//   console.log(req.body.orderDec);
+//   const newOrder = new order(
+//   {
+//     username : req.body.username,
+//     email : req.body.email,
+//     orderDec : req.body.orderDec
+//   });
+
+//   newOrder.save().catch();
+//   console.log("here is the saved order:"+newOrder);
+//   res.status(201).json({
+//     message: "Order successfully created!"
+//   })
+// });
+
 app.use((req, res, next) => {
   console.log(
-    "Backend done!"
+    "---Backend done!---"
   );
 });
 
