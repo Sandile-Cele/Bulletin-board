@@ -10,11 +10,11 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
-import { OrderCreateComponent } from './orders/order-create/order-create.component';
-import { OrderPlacedComponent } from './orders/order-placed/order-placed.component';
-
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingsModule } from './app-routing.module';
+
+import { OrderCreateComponent } from './orders/order-create/order-create.component';
+import { OrderPlacedComponent } from './orders/order-placed/order-placed.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 

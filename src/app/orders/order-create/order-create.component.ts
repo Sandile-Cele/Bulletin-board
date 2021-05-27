@@ -10,7 +10,7 @@ import { OrderService } from '../order.service';
 })
 export class OrderCreateComponent implements OnInit {
 
-  inUsernameError = 'Username must be > 4 and < 12, lower case, upper case and numbers only';//Error messages
+  inUsernameError = 'Username must be > 4 and < 12, lower case, upper case and numbers only!';//Error messages
   inEmailError = 'Make sure email is in the correct format!';
   inOrderError = 'Post must be >3 and <50 characters!';
 
