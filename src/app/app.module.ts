@@ -14,6 +14,7 @@ import { OrderCreateComponent } from './orders/order-create/order-create.compone
 import { OrderPlacedComponent } from './orders/order-placed/order-placed.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { AppRoutingsModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,16 +24,22 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-      FormsModule,
-      BrowserAnimationsModule,
-      MatSliderModule,
-      MatInputModule,
-      MatCardModule,
-      MatButtonModule,
-      MatExpansionModule,
-      HttpClientModule
+    AppRoutingsModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true},
+// {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi:true}
+// ]

@@ -35,6 +35,5 @@ export class OrderPlacedComponent implements OnInit, OnDestroy {
     this.orderService.deleteOrder(id);
   }
 
-
 }
 

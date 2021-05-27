@@ -30,9 +30,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json()); //Because app.use(bodyParser.json());...
-app.use(express.urlencoded({extended: false}));//...is deprecated
-
-
+app.use(express.urlencoded({extended: false}));//...is deprecated// You can set extended to TRUE you have a BIG object
 
 app.get("/api/orders", (req, res, next) =>
 {
@@ -50,51 +48,37 @@ app.get("/api/orders", (req, res, next) =>
 
 app.post('/api/orders',(req,res,next)=>
 {
-  console.log("---Post has been hit!---");
-  console.log(req.body);
-  console.log(req.body.id);
-  console.log(req.body.username);
-  console.log(req.body.email);
-  console.log(req.body.order);
-  const orders = new Order(
+  console.log("Post from you:\n"+req.body);
+
+  const oneOrder = new order(
     {
-      userName: req.body.userName,
-      Email: req.body.Email,
-      PlacedOder: req.body.PlacedOder
+      username: req.body.username,
+      email: req.body.email,
+      orderDec: req.body.orderDec
     }
   );
-  orders.save();
-  console.log(orders);
+
+  oneOrder.save();
+
   res.status(201).json({
     message:'Order Successfully created'
   });
 });
 
-// app.post('/api/orders', (req, res)=>
-// {
-//   console.log("---POST method has been hit!---");
-//   console.log(req.body);
-//   console.log(req.body.username);
-//   console.log(req.body.email);
-//   console.log(req.body.orderDec);
-//   const newOrder = new order(
-//   {
-//     username : req.body.username,
-//     email : req.body.email,
-//     orderDec : req.body.orderDec
-//   });
+app.delete('/api/orders', (req, res, next) => {
+    console.log(req.body);
 
-//   newOrder.save().catch();
-//   console.log("here is the saved order:"+newOrder);
-//   res.status(201).json({
-//     message: "Order successfully created!"
-//   })
-// });
+    Order.deleteOne({ _id: req.params.id })
+    .then((result) => {
+      console.log(result);
+      console.log("Order Deleted from DB");
 
-app.use((req, res, next) => {
-  console.log(
-    "---Backend done!---"
-  );
-});
+      res.status(200)
+      .json({ message: "Order Deleted from Database" });
+    });
+  }
+);
+
+console.log("---Backend done!---");
 
 module.exports = app;
