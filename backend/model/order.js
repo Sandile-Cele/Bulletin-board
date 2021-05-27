@@ -6,5 +6,5 @@ const orderSchema = mongoose.Schema({
   orderDec: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Order", orderSchema);
+module.exports = mongoose.model("order", orderSchema);
 

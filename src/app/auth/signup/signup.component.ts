@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -13,6 +14,11 @@ export class SignupComponent implements OnInit {
   enteredPasswordError2 = 'Make sure passwords match and they meet requirement for the first password!';
 
   constructor() { }
+
+  onSignup(form: NgForm){
+    console.log(form.value);
+
+  }
 
   ngOnInit(): void {
   }

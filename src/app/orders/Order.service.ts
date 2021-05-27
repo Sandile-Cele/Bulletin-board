@@ -49,7 +49,7 @@ export class OrderService{
   }
 
   deleteOrder(orderId: String){
-    this.http.delete('https://localhost:3000/api/orders/' + 123)
+    this.http.delete('https://localhost:3000/api/orders/' + orderId)
     .subscribe(()=>{
       const updatedOrdersDel = this.orders.filter(order => order.id!== orderId);
       this.orders = updatedOrdersDel;

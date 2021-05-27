@@ -1,4 +1,3 @@
-let restartCounter = 0;
 console.log("server has started");
 const express = require("express");
 const app = express();// const bodyParser = require("body-parser"); //This deprecated
@@ -32,54 +31,13 @@ app.use((req, res, next) => {
 app.use(express.json()); //Because app.use(bodyParser.json());...
 app.use(express.urlencoded({extended: false}));//...is deprecated// You can set extended to TRUE you have a BIG object
 
-app.get("/api/orders", (req, res, next) =>
-{
-  console.log("---Running get---");
-  order.find().then((documents)=>
-  {
-    res.json(
-//The problem to get orders, might be to change orders to 'O'rders
-      {
-      messages: "Orders retrieved successfully",
-      orders:documents
-    });
-  });
-});
 
-app.post('/api/orders',(req,res,next)=>
-{
-  console.log("Post from you:\n"+req.body);
 
-  const oneOrder = new order(
-    {
-      username: req.body.username,
-      email: req.body.email,
-      orderDec: req.body.orderDec
-    }
-  );
-
-  oneOrder.save();
-
-  res.status(201).json({
-    message:'Order Successfully created'
-  });
-});
-
-app.delete('/api/orders', (req, res, next) => {
-    console.log(req.body);
-
-    Order.deleteOne({ _id: req.params.id })
-    .then((result) => {
-      console.log(result);
-      console.log("Order Deleted from DB");
-
-      res.status(200)
-      .json({ message: "Order Deleted from Database" });
-    });
-  }
-);
-
+let restartCounter = 0;
 ++restartCounter;
 console.log(restartCounter+"---Backend done!---");
+
+app.use("/api/orders", orderRoutes);
+// app.use("/api/user", userRoutes);
 
 module.exports = app;
