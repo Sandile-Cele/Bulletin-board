@@ -1,7 +1,7 @@
+let restartCounter = 0;
 console.log("server has started");
-// const bodyParser = require("body-parser"); //This deprecated
 const express = require("express");
-const app = express();
+const app = express();// const bodyParser = require("body-parser"); //This deprecated
 const order = require("./model/order");
 const mongoose = require("mongoose");
 const fs = require("fs");
@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: false}));//...is deprecated// You can set 
 
 app.get("/api/orders", (req, res, next) =>
 {
-  console.log("Getting orders...");
+  console.log("---Running get---");
   order.find().then((documents)=>
   {
     res.json(
@@ -79,6 +79,7 @@ app.delete('/api/orders', (req, res, next) => {
   }
 );
 
-console.log("---Backend done!---");
+restartCounter;
+console.log(restartCounter+"---Backend done!---");
 
 module.exports = app;
