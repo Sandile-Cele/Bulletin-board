@@ -79,7 +79,7 @@ app.delete('/api/orders', (req, res, next) => {
   }
 );
 
-restartCounter;
+++restartCounter;
 console.log(restartCounter+"---Backend done!---");
 
 module.exports = app;
