@@ -16,6 +16,7 @@ import { OrderPlacedComponent } from './orders/order-placed/order-placed.compone
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingsModule } from './app-routing.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { AppRoutingsModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+
     AppRoutingsModule,
     FormsModule,
     BrowserAnimationsModule,
