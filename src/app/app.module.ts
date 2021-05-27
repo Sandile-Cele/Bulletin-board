@@ -15,7 +15,6 @@ import { OrderPlacedComponent } from './orders/order-placed/order-placed.compone
 
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingsModule } from './app-routing.module';
-import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 
@@ -25,7 +24,6 @@ import { SignupComponent } from './auth/signup/signup.component';
     AppComponent,
     OrderCreateComponent,
     OrderPlacedComponent,
-    SigninComponent,
     LoginComponent,
     SignupComponent
   ],
