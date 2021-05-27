@@ -15,13 +15,19 @@ import { OrderPlacedComponent } from './orders/order-placed/order-placed.compone
 
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingsModule } from './app-routing.module';
+import { SigninComponent } from './signin/signin.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderCreateComponent,
-    OrderPlacedComponent
+    OrderPlacedComponent,
+    SigninComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
