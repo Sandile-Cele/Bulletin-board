@@ -5,6 +5,8 @@ const order = require("./model/order");
 const mongoose = require("mongoose");
 const fs = require("fs");
 
+const orderRoutes = require("./routes/orders")
+
 const cert = fs.readFileSync("Keys/certificate.pem");
 const options = {
   server: {sslCA: cert}
