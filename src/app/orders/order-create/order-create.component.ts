@@ -34,3 +34,16 @@ export class OrderCreateComponent implements OnInit {
   }
 
 }
+
+  //Not in use anymore, using service now
+  // @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
+
+  // const oneOrder: Order = {
+  //   userName: Orderform.value.inUsername,
+  //   email: Orderform.value.inEmail,
+  //   placeOrder: Orderform.value.inOrder};
+
+  //   //this.orderCreated.emit(oneOrder);
+
+  //   this.orderService.setOrders(oneOrder);
+  // };
