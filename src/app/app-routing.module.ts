@@ -7,9 +7,7 @@ import { SignupComponent } from '../app/auth/signup/signup.component';
 
 const routes: Routes = [
   {path: '', component: OrderPlacedComponent},
-  {path: 'list', component: OrderPlacedComponent},
   {path:'create', component: OrderCreateComponent},
-  {path:'edit', component: OrderCreateComponent},
   {path:'edit/:postId', component: OrderCreateComponent},
   {path:'login', component: LoginComponent},
   {path:'signup', component: SignupComponent}

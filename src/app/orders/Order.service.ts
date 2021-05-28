@@ -3,8 +3,6 @@ import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from "rxjs/operators";
-import { Router } from '@angular/router';
-
 
 @Injectable({providedIn: 'root'})
 export class OrderService{
@@ -12,7 +10,7 @@ export class OrderService{
   protected message: string;
   private updatedOrders = new Subject<Order[]>();
 
-  constructor (private http: HttpClient, private router: Router,) {}
+  constructor (private http: HttpClient) {}
 
   setOrders(inOrder: Order){
     const order: Order = inOrder;
@@ -58,8 +56,6 @@ export class OrderService{
       this.updatedOrders.next([...this.orders]);
       console.log("Order deleted!");
     });
-
-    this.router.navigate([""]);
   }
 
   getPostUpdateLister(){

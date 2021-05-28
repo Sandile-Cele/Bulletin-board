@@ -1,6 +1,6 @@
 <mat-card>
   <h2>Create new account</h2>
-  <a style="color: aqua; text-decoration: underline;" routerLink="/login" routerLinkActive="router-link-active">I have an account </a>
+  <p style="cursor: pointer; text-decoration: underline;" routerLink="/login" routerLinkActive="router-link-active">I have an account </p>
   <form class="login" name="login" #loginForm="ngForm">
     <mat-form-field>
       <input matInput type="text" ngModel name="enteredUsername" placeholder="Username" required minlength="8"

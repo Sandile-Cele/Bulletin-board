@@ -1,6 +1,6 @@
 <mat-card>
   <h2>Please login</h2>
-  <a style="color: aqua; text-decoration: underline;" routerLink="/signup" routerLinkActive="router-link-active">I dont have an account</a>
+  <p style="cursor: pointer; text-decoration: underline;" routerLink="/signup" routerLinkActive="router-link-active">I dont have an account</p>
   <form class="login" name="login" #loginForm="ngForm">
     <mat-form-field>
       <input matInput type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name="enteredEmail"

@@ -1,33 +1,18 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" style="text-decoration:underline;" routerLink="">Bulletin board.</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active current"> <a routerLink="/list">List</a></li>
-      <li routerLinkActive="active current"> <a routerLink="/create"> Create</a></li>
-      <li routerLinkActive="active current"> <a routerLink="/edit"> Edit</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right">
-      <li routerLinkActive="active current"> <a routerLink="/login" > Login</a></li>
-      <li routerLinkActive="active current"> <a routerLink="/signup"> Sign up</a></li>
-    </ul>
-  </div>
-</nav>
-
 <main>
   <div style="text-align:center">
+
     <h1 style="text-decoration:underline;">Bulletin board.</h1>
-    <!-- <mat-card>
-      <div class="nav-wrapper">
+
+    <mat-card>
+      <nav>
         <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;" color="Secondary" routerLink="/login" routerLinkActive="router-link-active">Login</button>
         <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;" color="Secondary" routerLink="/signup" routerLinkActive="router-link-active">Sign up</button>
         <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" color="primary" routerLink="/create" routerLinkActive="router-link-active">Create</button>
         <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" color="primary" routerLink="/create" routerLinkActive="router-link-active">Edit</button>
         <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" color="primary" routerLink="" routerLinkActive="router-link-active">List</button>
-      </div>
-    </mat-card> -->
+      </nav>
+    </mat-card>
+    <br>
 
     <router-outlet></router-outlet>
 

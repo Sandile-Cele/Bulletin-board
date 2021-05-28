@@ -17,7 +17,6 @@ import { OrderCreateComponent } from './orders/order-create/order-create.compone
 import { OrderPlacedComponent } from './orders/order-placed/order-placed.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -39,8 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatButtonModule,
     MatExpansionModule,
-    HttpClientModule,
-    NgbModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
