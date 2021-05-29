@@ -30,7 +30,8 @@ export class OrderCreateComponent implements OnInit {
       email: Orderform.value.inEmail,
       orderDec: Orderform.value.inOrder};
 
-    this.orderService.setOrders(oneOrder)
+      console.log("we are in onAddOrder()")
+    // this.orderService.setOrders(oneOrder)
   }
 
 }

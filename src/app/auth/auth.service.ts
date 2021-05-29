@@ -14,7 +14,7 @@ export class AuthService {
     const userData: UserData = inUserData;
     console.log("The input: Email:" + userData.email + " username:" + userData.username + " order description:" + userData.password + " role:" + userData.role);
 
-    this.http.post<{ message: string, orderId: string }>('https://localhost:3000/api/user/signup', userData)
+    this.http.post('https://localhost:3000/api/user/signup', userData)
       .subscribe((responseUserData) => {
         console.log(responseUserData);
       });

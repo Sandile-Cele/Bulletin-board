@@ -9,7 +9,7 @@
     <p>Contact: {{oneData.email}}</p>
 
     <mat-action-row>
-      <button mat-button color="accent">Edit</button>
+      <button mat-button color="accent" (click)="onEdit(oneData.id)" >Edit</button>
       <button mat-button color="warn" (click)="onDelete(oneData.id)">Delete</button>
     </mat-action-row>
 

@@ -58,6 +58,21 @@ export class OrderService{
     });
   }
 
+  //I just copied post
+  editOrder(orderId: String){
+    // const order: Order = inOrder;
+    // console.log("The input: Email:"+order.email+" username:"+ order.username+ " order description:"+order.orderDec+" id:" + order.id);
+    // this.http.post<{message: string, orderId: string}>('https://localhost:3000/api/orders', order)
+    //   .subscribe((responseOrderData)=>{
+    //     console.log("This is the message: " + responseOrderData.message);
+    //     const id = responseOrderData.orderId;
+    //     order.id = id;
+    //     this.orders.push(order);
+    //     this.updatedOrders.next([...this.orders]);
+    //   });
+  }
+
+
   getPostUpdateLister(){
     return this.updatedOrders.asObservable();
   }

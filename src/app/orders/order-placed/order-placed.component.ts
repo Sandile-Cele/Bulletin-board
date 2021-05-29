@@ -35,5 +35,10 @@ export class OrderPlacedComponent implements OnInit, OnDestroy {
     this.orderService.deleteOrder(id);
   }
 
+  onEdit(id: String){
+    this.orderService.editOrder(id);
+    alert("Feature coming soon!");
+  }
+
 }
 

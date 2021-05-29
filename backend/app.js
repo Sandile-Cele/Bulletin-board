@@ -1,11 +1,11 @@
 console.log("server has started");
 const express = require("express");
 const app = express();// const bodyParser = require("body-parser"); //This deprecated
-const order = require("./model/order");
 const mongoose = require("mongoose");
 const fs = require("fs");
 
-const orderRoutes = require("./routes/orders")
+const orderRoutes = require("./routes/orders");
+const userRoutes = require("./routes/user");
 
 const cert = fs.readFileSync("Keys/certificate.pem");
 const options = {
@@ -33,13 +33,10 @@ app.use((req, res, next) => {
 app.use(express.json()); //Because app.use(bodyParser.json());...
 app.use(express.urlencoded({extended: false}));//...is deprecated// You can set extended to TRUE you have a BIG object
 
-
-
 let restartCounter = 0;
 ++restartCounter;
 console.log(restartCounter+"---Backend done!---");
 
 app.use("/api/orders", orderRoutes);
-// app.use("/api/user", userRoutes);
-
+app.use("/api/user", userRoutes);
 module.exports = app;

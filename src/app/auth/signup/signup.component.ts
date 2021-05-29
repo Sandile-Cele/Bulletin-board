@@ -13,17 +13,20 @@ export class SignupComponent implements OnInit {
   enteredEmailError = 'Please enter a correctly formatted e-mail address!';
   enteredRoleError = 'Role entered must be >2 and <11';
   enteredPasswordError = 'Please enter a password that contains lower case, upper case letters and at least one number!';
-  enteredPassword2Error = 'Make sure passwords match and they meet requirement for the first password!';
+  enteredPassword2Error = 'Make sure passwords match! And they meet requirement for the first password!';
 
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
 
   onSignup(signupForm: NgForm) {
+    console.log("in onSignup()");
     if (signupForm.invalid) {
+      console.log("in onSignup()");
       return;
     }
     else if (!signupForm.value.password === signupForm.value.password2) {
+      console.log("passwords not the same");
       return;
     }
     else {
