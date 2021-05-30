@@ -22,6 +22,9 @@ export class AuthService {
 
   postLogin(inUserData: UserData) {
     const authData: UserData= inUserData;
+    console.log("In auth.service: Email:" + inUserData.email + " password:" + inUserData.password );
+
+
 //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
     this.http.post<{ token: string }>('https://localhost:3000/api/user/login', authData)
       .subscribe(response => {

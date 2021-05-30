@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../model/user");
-// const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 // const ExpressBrute = require("express-brute");
 //const store = new ExpressBrute.MemoryStore();
 // const bruteforce = new ExpressBrute(store);
@@ -26,7 +26,7 @@ router.post("/signup", (req, res, next) => {
     newUser.save();
 
     res.status(201).json({
-      message: "User Successfully created",
+      message: "User Successfully created(FROM BACKEND)",
     });
 
     //Try and use this
@@ -45,13 +45,15 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-router.post("/login", bruteforce.prevent, (req, res, next) => {
+router.post("/login", (req, res, next) => {
   // creating global user variable to use in different code blocks.
   let fetchedUser;
   //checks if we have user with a valid e-mail address
+  console.log(req.body);
+
   User.findOne({ email: req.body.email })
     .then((user) => {
-      console.log(user);
+      console.log("Getting user from Db:"+user);
       if (!user) {
         return res.status(401).json({
           message: "Authentication Failed, try again ",
@@ -59,7 +61,7 @@ router.post("/login", bruteforce.prevent, (req, res, next) => {
       }
       // assigning retrieved user to global variable so we can use him later
       fetchedUser = user;
-      //compares hashed passwords (alwasy the same hash with same input)
+      //compares hashed passwords (always the same hash with same input)
       return bcrypt.compare(req.body.password, user.password); // compare returned user password and password in db
     })
     .then((result) => {
@@ -71,7 +73,7 @@ router.post("/login", bruteforce.prevent, (req, res, next) => {
       }
       //create JWT if user exists : JWT contains user e mail and user ID from user object
       const token = jwt.sign(
-        { email: fetchedUser.email, userId: fetchedUser._id },
+        { email: fetchedUser.email, userId: fetchedUser._id, username: fetchedUser.username},
         "secret_this_should_be_longer_time_is",
         {
           expiresIn: "1h",

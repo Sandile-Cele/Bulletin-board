@@ -9,28 +9,31 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  enteredEmailError = 'Please enter a correctly formatted e-mail address!';
-  enteredPasswordError = 'Please enter a password that contains lower case, upper case letters and at least one number!';
+  inEmailError = 'Please enter a correctly formatted e-mail address!';
+  inPasswordError = 'Please enter a password that contains lower case, upper case letters and at least one number!';
 
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onSignup(signupForm: NgForm){
+  onLogin(signupForm: NgForm){
 
     if(signupForm.invalid){
       return;
     }
 
-    var login: UserData = {
+
+    var loginData: UserData = {
       username: null,
-      email: signupForm.value.email,
-      password: signupForm.value.password,
+      email: signupForm.value.inEmail,
+      password: signupForm.value.inPassword,
       role: null
     };
+    console.log("straight from from: Email:" + loginData.email + " password:" + loginData.password );
+
 //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
-    this.authService.postLogin(login);
+    this.authService.postLogin(loginData);
   }
 
 }

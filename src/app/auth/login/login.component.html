@@ -1,19 +1,19 @@
 <mat-card>
-  <h2>Please login</h2>
+  <h2>Login</h2>
   <p style="cursor: pointer; text-decoration: underline;" routerLink="/signup" routerLinkActive="router-link-active">I dont have an account</p>
-  <form class="login" name="login" #loginForm="ngForm">
+  <form name="login"  (submit)="onLogin(loginForm)" #loginForm="ngForm">
 
     <mat-form-field>
-      <input matInput type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name="enteredEmail"
-        placeholder="Email address" required #enteredEmail="ngModel" />
-      <mat-error *ngIf="enteredEmail.invalid">{{enteredEmailError}}</mat-error>
+      <input matInput style="margin-bottom: 10px;" type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name="inEmail"
+        placeholder="Email address" required #inEmailErrorz="ngModel" />
+      <mat-error *ngIf="inEmailErrorz.invalid">{{inEmailError}}</mat-error>
     </mat-form-field>
     <br>
 
     <mat-form-field>
-      <input matInput type="password" pattern="^([a-zA-Z0-9@*#]{8,15})$" ngModel name="enteredPassword"
-        placeholder="Password" required #enteredPassword="ngModel" />
-      <mat-error *ngIf="enteredPassword.invalid">{{enteredPasswordError}}</mat-error>
+      <input matInput style="margin-bottom: 15px;" type="password" pattern="^([a-zA-Z0-9@*#]{8,15})$" ngModel name="inPassword"
+        placeholder="Password" required #inPasswordErrorz="ngModel" />
+      <mat-error *ngIf="inPasswordErrorz.invalid">{{inPasswordError}}</mat-error>
     </mat-form-field>
     <br>
     <button mat-raised-button type="submit" style="width: 90%;" color="primary">Login</button>
