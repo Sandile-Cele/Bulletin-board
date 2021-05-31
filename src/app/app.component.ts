@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Order } from './orders/Order.model';
 import { OrderService } from './orders/order.service';
+import { AuthService } from './auth/auth.service';
 
 
 @Component({
@@ -9,5 +10,10 @@ import { OrderService } from './orders/order.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(public authService: AuthService) {}
 
+
+  signOut(){
+    this.authService.removeToken();
+  }
 }

@@ -14,6 +14,10 @@ export class AuthService {
     return this.token;
   }
 
+  removeToken(){
+    this.token = "";
+  }
+
   postSignup(inUserData: UserData) {
 
     const userData: UserData = inUserData;
