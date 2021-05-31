@@ -12,7 +12,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class OrderCreateComponent implements OnInit {
 
-  inUsernameError = 'Post must be > 4 letters, lower case, upper case and numbers only!';
+  inUsernameError = 'Post must be >2 and <21 letters, lower case, upper case and numbers only!';
   inEmailError = 'Make sure email is in the correct format!';
   inOrderError = 'Post description must be >3 and <50 characters!';
 
