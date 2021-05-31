@@ -12,7 +12,7 @@ export class OrderService{
 
   constructor (private http: HttpClient) {}
 
-  setOrders(inOrder: Order){
+  postOrders(inOrder: Order){
     const order: Order = inOrder;
     console.log("The input: Email:"+order.email+" username:"+ order.username+ " order description:"+order.orderDec+" id:" + order.id);
     this.http.post<{message: string, orderId: string}>('https://localhost:3000/api/orders', order)

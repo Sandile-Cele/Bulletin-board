@@ -31,7 +31,7 @@ export class OrderCreateComponent implements OnInit {
       orderDec: Orderform.value.inOrder};
 
       console.log("we are in onAddOrder()")
-    // this.orderService.setOrders(oneOrder)
+      this.orderService.postOrders(oneOrder);
   }
 
 }

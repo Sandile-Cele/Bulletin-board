@@ -8,12 +8,14 @@
       <mat-error *ngIf="enteredUserName.invalid">{{enteredUserNameError}}</mat-error>
     </mat-form-field>
     <br>
+    <br>
 
     <mat-form-field>
       <input matInput type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name="inEmail"
         placeholder="Email address" required #enteredEmail="ngModel" />
       <mat-error *ngIf="enteredEmail.invalid">{{enteredEmailError}}</mat-error>
     </mat-form-field>
+    <br>
     <br>
 
     <mat-form-field>
@@ -22,6 +24,7 @@
       <mat-error *ngIf="enteredRole.invalid">{{enteredRoleError}}</mat-error>
     </mat-form-field>
      <br>
+     <br>
 
     <mat-form-field>
       <input matInput type="password" pattern="^([a-zA-Z0-9@*#]{8,15})$" ngModel name="inPassword"
@@ -29,12 +32,15 @@
       <mat-error *ngIf="enteredPassword.invalid">{{enteredPasswordError}}</mat-error>
     </mat-form-field>
     <br>
+    <br>
 
     <mat-form-field>
       <input matInput type="password" pattern="^([a-zA-Z0-9@*#]{8,15})$" ngModel name="inPassword2"
         placeholder="Confirm password" required #enteredPassword2="ngModel" />
       <mat-error *ngIf="enteredPassword2.invalid">{{enteredPassword2Error}}</mat-error>
     </mat-form-field>
+    <br>
+    <br>
     <br>
     <button mat-raised-button type="submit" style="width: 90%;" color="primary">Sign up</button>
   </form>

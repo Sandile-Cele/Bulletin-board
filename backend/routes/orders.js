@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const order = require("../model/order");
+const CheckAuth = require("../middleware/jwt-helper");
+
+let getOrdersCounter = 0;
 
 router.get("", (req, res, next) => {
-  console.log("---Getting orders from mongoDb---");
+  console.log(getOrdersCounter +"---Getting orders from mongoDb---");
 
   order.find().then((documents) => {
     res.json(
@@ -15,7 +18,7 @@ router.get("", (req, res, next) => {
   });
 });
 
-router.post("", (req, res, next) => {
+router.post("", CheckAuth, (req, res, next) => {
   console.log("Post from you:\n" + req.body);
 
   const oneOrder = new order({
@@ -34,7 +37,7 @@ router.post("", (req, res, next) => {
 //Check if user has valid token using middle ware we created.
 
 //this is for checking auth            // router.delete( "/:id",CheckAuth, (req, res, next) => {
-router.delete( "/:id", (req, res, next) => {
+router.delete( "/:id", CheckAuth, (req, res, next) => {
     console.log("Here is the id:" +req.params.id);
 
     order.deleteOne({ _id: req.params.id }).then((result) => {

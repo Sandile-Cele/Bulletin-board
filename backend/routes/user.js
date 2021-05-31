@@ -29,19 +29,19 @@ router.post("/signup", (req, res, next) => {
       message: "User Successfully created(FROM BACKEND)",
     });
 
-    //Try and use this
-    // newUser.save()
-    //   .then((result) => {
-    //     res.status(201).json({
-    //       message: "User created!",
-    //       result: result,
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     res.status(500).json({
-    //       error: err,
-    //     });
-    //   });
+                                              //Try and use this
+                                              // newUser.save()
+                                              //   .then((result) => {
+                                              //     res.status(201).json({
+                                              //       message: "User created!",
+                                              //       result: result,
+                                              //     });
+                                              //   })
+                                              //   .catch((err) => {
+                                              //     res.status(500).json({
+                                              //       error: err,
+                                              //     });
+                                              //   });
   });
 });
 
@@ -74,12 +74,12 @@ router.post("/login", (req, res, next) => {
       //create JWT if user exists : JWT contains user e mail and user ID from user object
       const token = jwt.sign(
         { email: fetchedUser.email, userId: fetchedUser._id, username: fetchedUser.username},
-        "secret_this_should_be_longer_time_is",
+          "my_super_secret",
         {
           expiresIn: "1h",
         }
       );
-      console.log(token);
+      console.log("This is the token:\n"+token);
       res.status(200).json({
         token: token,
       });

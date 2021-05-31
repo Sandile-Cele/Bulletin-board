@@ -23,15 +23,12 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-
     var loginData: UserData = {
       username: null,
       email: signupForm.value.inEmail,
       password: signupForm.value.inPassword,
       role: null
     };
-    console.log("straight from from: Email:" + loginData.email + " password:" + loginData.password );
-
 //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
     this.authService.postLogin(loginData);
   }
