@@ -14,7 +14,7 @@ export class OrderService{
 
   postOrders(inOrder: Order){
     // const order: Order = inOrder;
-    const order: Order = {id :null, username : "Username place holder" , email: "Email place holder", orderDec: inOrder.orderDec};
+    const order: Order = {id :null, username : "logged in username will be placed here" , email: "logged in user email will be placed here", orderDec: inOrder.orderDec};
 
     console.log("The input: Email:"+order.email+" username:"+ order.username+ " order description:"+order.orderDec+" id:" + order.id);
     this.http.post<{message: string, orderId: string}>('https://localhost:3000/api/orders', order)

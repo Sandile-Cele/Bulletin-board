@@ -5,7 +5,7 @@ const CheckAuth = require("../middleware/jwt-helper");
 
 let getOrdersCounter = 0;
 
-router.get("", (req, res, next) => {
+router.get("", CheckAuth, (req, res, next) => {
   console.log(getOrdersCounter +"---Getting orders from mongoDb---");
 
   order.find().then((documents) => {
