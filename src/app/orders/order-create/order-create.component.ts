@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Order} from '../Order.model';
 import { OrderService } from '../order.service';
+import { DomSanitizer } from "@angular/platform-browser";
+
 
 @Component({
   selector: 'app-order-create',
@@ -10,13 +12,11 @@ import { OrderService } from '../order.service';
 })
 export class OrderCreateComponent implements OnInit {
 
-  inUsernameError = 'Username must be > 4 and < 12, lower case, upper case and numbers only!';//Error messages
+  inUsernameError = 'Post must be > 4 letters, lower case, upper case and numbers only!';
   inEmailError = 'Make sure email is in the correct format!';
-  inOrderError = 'Post must be >3 and <50 characters!';
+  inOrderError = 'Post description must be >3 and <50 characters!';
 
-  constructor(public orderService: OrderService) {
-
-  }
+  constructor(public orderService: OrderService, protected sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {}
 
@@ -24,13 +24,10 @@ export class OrderCreateComponent implements OnInit {
 
     if(Orderform.invalid){
       return;
-    }
+      }
 
-    var oneOrder: Order = {id:null, username: Orderform.value.inUsername,
-      email: Orderform.value.inEmail,
-      orderDec: Orderform.value.inOrder};
+    var oneOrder: Order = {id:null, username: Orderform.value.inUsername, email: Orderform.value.inEmail, orderDec: Orderform.value.inOrder};
 
-      console.log("we are in onAddOrder()")
       this.orderService.postOrders(oneOrder);
   }
 

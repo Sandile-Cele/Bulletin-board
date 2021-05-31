@@ -10,7 +10,7 @@ import { OrderService } from '../order.service';
 })
 
 export class OrderPlacedComponent implements OnInit, OnDestroy {
-  orders:Order[] = [];//@Input()
+  orders:Order[] = [];
 
   constructor(public orderService: OrderService) {}
   ordersSubscription: Subscription;
@@ -36,7 +36,7 @@ export class OrderPlacedComponent implements OnInit, OnDestroy {
   }
 
   onEdit(id: String){
-    this.orderService.editOrder(id);
+    // this.orderService.editOrder(id);
     alert("Feature coming soon!");
   }
 

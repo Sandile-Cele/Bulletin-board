@@ -29,19 +29,19 @@ router.post("/signup", (req, res, next) => {
       message: "User Successfully created(FROM BACKEND)",
     });
 
-                                              //Try and use this
-                                              // newUser.save()
-                                              //   .then((result) => {
-                                              //     res.status(201).json({
-                                              //       message: "User created!",
-                                              //       result: result,
-                                              //     });
-                                              //   })
-                                              //   .catch((err) => {
-                                              //     res.status(500).json({
-                                              //       error: err,
-                                              //     });
-                                              //   });
+                          //Try and use this
+                          // newUser.save()
+                          //   .then((result) => {
+                          //     res.status(201).json({
+                          //       message: "User created!",
+                          //       result: result,
+                          //     });
+                          //   })
+                          //   .catch((err) => {
+                          //     res.status(500).json({
+                          //       error: err,
+                          //     });
+                          //   });
   });
 });
 
