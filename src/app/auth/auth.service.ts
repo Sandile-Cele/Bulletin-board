@@ -8,7 +8,7 @@ import { UserData } from "./auth.model";
 export class AuthService {
   private token: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, protected router: Router) { }
 
   getToken(){
     return this.token;
@@ -31,7 +31,6 @@ export class AuthService {
 
   postLogin(inUserData: UserData) {
     const authData: UserData= inUserData;
-    console.log("In auth.service: Email:" + inUserData.email + " password:" + inUserData.password );
 //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
     this.http.post<{ token: string }>('https://localhost:3000/api/user/login', authData)
       .subscribe(response => {
@@ -39,6 +38,7 @@ export class AuthService {
         this.token = token;
         console.log("This is the token:"+response.token+"---end");
       });
+      // this.router.navigate(["/"]);
   }
 
 }

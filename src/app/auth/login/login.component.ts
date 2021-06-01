@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserData } from '../auth.model';
 import { AuthService } from '../auth.service';
+import {DomSanitizer} from "@angular/platform-browser"
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   inEmailError = 'Please enter a correctly formatted e-mail address!';
   inPasswordError = 'Please enter a password that contains lower case, upper case letters and at least one number!';
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, protected sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -23,12 +24,13 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    var loginData: UserData = {
-      username: null,
-      email: signupForm.value.inEmail,
-      password: signupForm.value.inPassword,
-      role: null
-    };
+  var loginData: UserData = {
+    username: null,
+    email: this.sanitizer.sanitize(SecurityContext.HTML,  signupForm.value.inEmail),
+    password: this.sanitizer.sanitize(SecurityContext.HTML,  signupForm.value.inPassword),
+    role: null
+  };
+
 //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
     this.authService.postLogin(loginData);
   }
