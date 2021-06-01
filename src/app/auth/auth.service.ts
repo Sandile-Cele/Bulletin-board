@@ -36,7 +36,7 @@ export class AuthService {
       .subscribe(response => {
         const token = response.token;
         this.token = token;
-        console.log("This is the token:"+response.token+"---end");
+        console.log("You should be logged in now");
       });
       // this.router.navigate(["/"]);
   }

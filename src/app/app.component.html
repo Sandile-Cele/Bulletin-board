@@ -1,20 +1,22 @@
-<main>
-  <div style="text-align:center">
+<mat-toolbar color="Secondary" class="navbar">
+  <span>
+    <p>Bulletin board.</p>
+  </span>
 
-    <h1 style="text-decoration:underline;">Bulletin board.</h1>
+  <div>
+    <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" routerLinkActive="router-link-active" color="primary" routerLink="/list">List posts</button>
+    <button mat-raised-button style="margin-right: 24px; margin-bottom: 8px;" routerLinkActive="router-link-active" color="primary" routerLink="/create">Create post</button>
 
-    <mat-card>
-      <br>
-        <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;"  color="warn" (click)="signOut()">Sign out</button>
-        <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;" color="Secondary" routerLink="/login" routerLinkActive="router-link-active">Login</button>
-        <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;" color="Secondary" routerLink="/signup" routerLinkActive="router-link-active">Sign up</button>
-        <br>
-        <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" color="primary" routerLink="/create" routerLinkActive="router-link-active">Create post</button>
-        <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" color="primary" routerLink="" routerLinkActive="router-link-active">List posts</button>
-    </mat-card>
-    <br>
-
-    <router-outlet></router-outlet>
-
+    <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;"  color="Secondary" routerLink="/login" routerLinkActive="router-link-active">Login</button>
+    <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;"  color="Secondary" routerLink="/signup" routerLinkActive="router-link-active">Sign up</button>
+    <button mat-raised-button  color="warn" (click)="signOut()">Sign out</button>
   </div>
+</mat-toolbar>
+<br>
+
+<main color="Secondary">
+  <router-outlet></router-outlet>
+
 </main>
+
+

@@ -3,7 +3,6 @@ import { Order } from './orders/Order.model';
 import { OrderService } from './orders/order.service';
 import { AuthService } from './auth/auth.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

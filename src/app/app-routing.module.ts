@@ -6,11 +6,11 @@ import { LoginComponent } from '../app/auth/login/login.component';
 import { SignupComponent } from '../app/auth/signup/signup.component';
 
 const routes: Routes = [
-  {path: '', component: OrderPlacedComponent},
-  {path:'create', component: OrderCreateComponent},
-  //Edit is comming soon
-  // {path:'edit/:postId', component: OrderCreateComponent},
+  {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
+  {path: 'list', component: OrderPlacedComponent},
+  {path:'create', component: OrderCreateComponent},
+  // {path:'edit/:postId', component: OrderCreateComponent},//Edit is comming soon
   {path:'signup', component: SignupComponent}
 ];
 
