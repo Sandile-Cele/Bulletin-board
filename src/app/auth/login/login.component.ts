@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
 //!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
     this.authService.postLogin(loginData);
+    alert("If all details are correct, you may be logged-in. Go to list post to check");
   }
 
 }

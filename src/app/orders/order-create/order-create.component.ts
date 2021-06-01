@@ -28,7 +28,8 @@ export class OrderCreateComponent implements OnInit {
 
     var oneOrder: Order = {id:null, username: Orderform.value.inUsername, email: Orderform.value.inEmail, orderDec: Orderform.value.inOrder};
 
-      this.orderService.postOrders(oneOrder);
+    this.orderService.postOrders(oneOrder);
+    alert("If all details are correct, your post might be created. Goto \"list posts\" to check.");
   }
 
 }

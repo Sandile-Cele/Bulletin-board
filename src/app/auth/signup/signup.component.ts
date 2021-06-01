@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
       }
 
       this.authService.postSignup(newUser);
+      alert("If all details are correct, you may be signed-up. Try to login to check.");
     }
 
   }

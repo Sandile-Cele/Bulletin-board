@@ -15,5 +15,6 @@ export class AppComponent {
 
   signOut(){
     this.authService.removeToken();
+    alert("You may be signed-out, go to \"list posts\" to check if you can still see posts.");
   }
 }
