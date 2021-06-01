@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { UserData } from '../auth.model';
+import {DomSanitizer} from "@angular/platform-browser"
 
 @Component({
   selector: 'app-signup',
@@ -15,14 +16,13 @@ export class SignupComponent implements OnInit {
   enteredPasswordError = 'Please enter a password that contains lower case, upper case letters and at least one number!';
   enteredPassword2Error = 'Make sure passwords match! And they meet requirement for the first password!';
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, protected sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {}
 
   onSignup(signupForm: NgForm) {
-    console.log("in onSignup()");
     if (signupForm.invalid) {
-      console.log("in onSignup()");
+      console.log("Some inputs are not valid");
       return;
     }
     else if (!signupForm.value.password === signupForm.value.password2) {
@@ -30,12 +30,13 @@ export class SignupComponent implements OnInit {
       return;
     }
     else {
+
       var newUser: UserData = {
-        username: signupForm.value.inUsername,
-        email: signupForm.value.inEmail,
-        password: signupForm.value.inPassword,
-        role: signupForm.value.inRole,
-      };
+        username: this.sanitizer.sanitize(SecurityContext.HTML, signupForm.value.inUsername),
+        email: this.sanitizer.sanitize(SecurityContext.HTML, signupForm.value.inEmail),
+        password: this.sanitizer.sanitize(SecurityContext.HTML, signupForm.value.inPassword),
+        role: this.sanitizer.sanitize(SecurityContext.HTML, signupForm.value.inRole),
+      }
 
       this.authService.postSignup(newUser);
     }
