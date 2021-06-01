@@ -2,7 +2,7 @@
   <h2>Create post</h2>
 <form name = "order" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field >
-    <input matInput required type="text" ngModel name="inUsername" minlength="2"  minlength="20" #inUsernameErrorz="ngModel" pattern="^[a-zA-Z0-9\s_-]+$" placeholder="Post title"/>
+    <input matInput required type="text" ngModel name="inUsername" minlength="2"  maxlength="20" #inUsernameErrorz="ngModel" pattern="^[a-zA-Z0-9\s_-]+$" placeholder="Post title"/>
     <mat-error *ngIf="inUsernameErrorz.invalid">{{inUsernameError}}</mat-error>
   </mat-form-field>
   <br>
