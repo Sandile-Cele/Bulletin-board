@@ -1,6 +1,23 @@
-main{
+main {
   margin-top: 1 rem;
   width: 60%;
   margin: auto;
   text-align: center;
+}
+
+.navbar {
+  color: gr;
+  justify-content: space-between;
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.middle {
+  align-content: center;
+}
+
+span{
+  padding-right: 1rem;
 }

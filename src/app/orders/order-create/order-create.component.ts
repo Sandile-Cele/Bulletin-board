@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Order} from '../Order.model';
 import { OrderService } from '../order.service';
+import { DomSanitizer } from "@angular/platform-browser";
+
 
 @Component({
   selector: 'app-order-create',
@@ -10,13 +12,11 @@ import { OrderService } from '../order.service';
 })
 export class OrderCreateComponent implements OnInit {
 
-  inUsernameError = 'Username must be > 4 and < 12, lower case, upper case and numbers only';//Error messages
-  inEmailError = 'Make sure email is in the correct format';
-  inOrderError = 'Order must be <50 characters';
+  inUsernameError = 'Post must be >2 and <21 letters, lower case, upper case and numbers only!';
+  inEmailError = 'Make sure email is in the correct format!';
+  inOrderError = 'Post description must be >3 and <50 characters!';
 
-  constructor(public orderService: OrderService) {
-
-  }
+  constructor(public orderService: OrderService, protected sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {}
 
@@ -24,26 +24,12 @@ export class OrderCreateComponent implements OnInit {
 
     if(Orderform.invalid){
       return;
-    }
+      }
 
-    var oneOrder: Order = {id:null, username: Orderform.value.inUsername,
-      email: Orderform.value.inEmail,
-      orderDec: Orderform.value.inOrder};
+    var oneOrder: Order = {id:null, username: Orderform.value.inUsername, email: Orderform.value.inEmail, orderDec: Orderform.value.inOrder};
 
-    this.orderService.setOrders(oneOrder)
+    this.orderService.postOrders(oneOrder);
+    alert("If all details are correct, your post might be created. Goto \"list posts\" to check.");
   }
 
 }
-
-  //Not in use anymore, using service now
-  // @Output() orderCreated: EventEmitter<Order> = new EventEmitter();
-
-  // const oneOrder: Order = {
-  //   userName: Orderform.value.inUsername,
-  //   email: Orderform.value.inEmail,
-  //   placeOrder: Orderform.value.inOrder};
-
-  //   //this.orderCreated.emit(oneOrder);
-
-  //   this.orderService.setOrders(oneOrder);
-  // };

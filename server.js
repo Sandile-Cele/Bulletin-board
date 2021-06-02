@@ -3,6 +3,8 @@ const debug = require("debug")("node-angular");
 const http = require("https");
 const fs = require('fs');
 
+const cors = require("cors");
+
 const port = process.env.PORT || 3000;
 
 const server = http.createServer(
@@ -12,5 +14,7 @@ const server = http.createServer(
   },
   app.set("port", port, debug)
 );
+
+app.use(cors());
 
 server.listen(port);

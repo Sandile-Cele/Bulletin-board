@@ -1,0 +1,24 @@
+<mat-card>
+  <h2>Login</h2>
+  <p style="cursor: pointer; text-decoration: underline;" routerLink="/signup" routerLinkActive="router-link-active">I dont have an account</p>
+  <form name="login"  (submit)="onLogin(loginForm)" #loginForm="ngForm">
+
+    <mat-form-field>
+      <input matInput style="margin-bottom: 10px;" type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name="inEmail"
+        placeholder="Email address" required #inEmailErrorz="ngModel" />
+      <mat-error *ngIf="inEmailErrorz.invalid">{{inEmailError}}</mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+
+    <mat-form-field>
+      <input matInput style="margin-bottom: 10px;" type="password" pattern="^([a-zA-Z0-9@*#]{8,15})$" ngModel name="inPassword"
+        placeholder="Password" required #inPasswordErrorz="ngModel" />
+      <mat-error *ngIf="inPasswordErrorz.invalid">{{inPasswordError}}</mat-error>
+    </mat-form-field>
+    <br>
+    <br>
+    <br>
+    <button mat-raised-button type="submit" style="width: 90%;" color="primary">Login</button>
+  </form>
+</mat-card>

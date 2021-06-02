@@ -2,6 +2,8 @@
   <mat-expansion-panel *ngFor="let oneData of orders" >
     <mat-expansion-panel-header >
       {{oneData.username}}
+      <br>
+      <p style="margin-left: auto;">Department name(next update)</p>
     </mat-expansion-panel-header>
     {{oneData.orderDec}}
     <br/>
@@ -9,8 +11,8 @@
     <p>Contact: {{oneData.email}}</p>
 
     <mat-action-row>
-      <button mat-button color="accent">Edit</button>
-      <button mat-button color="warn" >Delete</button>
+      <button mat-button color="accent" (click)="onEdit(oneData.id)" >Edit</button>
+      <button mat-button color="warn" (click)="onDelete(oneData.id)">Delete</button>
     </mat-action-row>
 
   </mat-expansion-panel>
@@ -18,5 +20,7 @@
 
 
 </mat-accordion>
-<h2 *ngIf="orders.length <= 0 ">No orders created!</h2>
+<h2 *ngIf="orders.length <= 0 ">No posts, or you need to login!<p style="cursor: pointer; text-decoration: underline;" routerLink="/login" routerLinkActive="router-link-active">Login now!</p></h2>
+
+
 <br>

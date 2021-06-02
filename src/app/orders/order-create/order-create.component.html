@@ -1,22 +1,22 @@
 <mat-card>
-  <p>Create order</p>
-<form name = "login" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
+  <h2>Create post</h2>
+<form name = "order" (submit)="onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field >
-    <input matInput required type="text" ngModel name="inUsername" minlength="4" maxlength="12" #inUsernameErrorz="ngModel" pattern="^[a-zA-Z0-9\_s]+$" placeholder="Username" value="someone"/>
+    <input matInput required type="text" ngModel name="inUsername" minlength="2"  maxlength="20" #inUsernameErrorz="ngModel" pattern="^[a-zA-Z0-9\s_-]+$" placeholder="Post title"/>
     <mat-error *ngIf="inUsernameErrorz.invalid">{{inUsernameError}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input required matInput  type="email" ngModel name="inEmail" #inEmailErrorz="ngModel" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email address">
+    <input required matInput type="email" ngModel name="inEmail" #inEmailErrorz="ngModel" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Email address(Will automatically add it in next update)">
     <mat-error *ngIf="inEmailErrorz.invalid">{{inEmailError}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea matInput required type="text" ngModel name="inOrder" #inOrderErrorz="ngModel" maxlength="50" minlength="3" placeholder="Order description" rows="3" ></textarea>
+    <textarea matInput required type="text" ngModel name="inOrder" #inOrderErrorz="ngModel" maxlength="50" minlength="3" placeholder="Post description" rows="3" ></textarea>
     <mat-error *ngIf="inOrderErrorz.invalid">{{inOrderError}}</mat-error>
   </mat-form-field>
   <br>
-  <button mat-raised-button type="submit" color="primary">Order Now!</button>
+  <button mat-raised-button type="submit" style="width: 90%;" color="primary">Post</button>
 
 </form>
 </mat-card>

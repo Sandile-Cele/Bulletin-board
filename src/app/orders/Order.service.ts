@@ -1,7 +1,7 @@
 import {Order} from './Order.model';
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
@@ -10,14 +10,12 @@ export class OrderService{
   protected message: string;
   private updatedOrders = new Subject<Order[]>();
 
-  constructor (private http: HttpClient) {};
+  constructor (private http: HttpClient) {}
 
+  postOrders(inOrder: Order){
+    const order: Order = inOrder;
 
-  setOrders(inOrder: Order){//The lab accepts each var here, by I take in the whole order
-    //this.orders.push(inOrder);
-    // this.updatedOrders.next([...this.orders]);
-    const order: Order = inOrder;//The guide sets each var here
-    console.log("This is being posted!"+order.email+" and "+order.orderDec+"...");
+    console.log("The input: Email:"+order.email+" username:"+ order.username+ " order description:"+order.orderDec+" id:" + order.id);
     this.http.post<{message: string, orderId: string}>('https://localhost:3000/api/orders', order)
       .subscribe((responseOrderData)=>{
         console.log("This is the message: " + responseOrderData.message);
@@ -26,7 +24,6 @@ export class OrderService{
         this.orders.push(order);
         this.updatedOrders.next([...this.orders]);
       });
-
   }
 
   getOrders(){
@@ -52,8 +49,8 @@ export class OrderService{
     });
   }
 
-  deleteOrder(orderId: string){
-    this.http.delete('https://localhost:3000/api/orders' + orderId)
+  deleteOrder(orderId: String){
+    this.http.delete('https://localhost:3000/api/orders/' + orderId)
     .subscribe(()=>{
       const updatedOrdersDel = this.orders.filter(order => order.id!== orderId);
       this.orders = updatedOrdersDel;
@@ -61,6 +58,21 @@ export class OrderService{
       console.log("Order deleted!");
     });
   }
+
+  //I just copied post
+  editOrder(orderId: String){
+    // const order: Order = inOrder;
+    // console.log("The input: Email:"+order.email+" username:"+ order.username+ " order description:"+order.orderDec+" id:" + order.id);
+    // this.http.post<{message: string, orderId: string}>('https://localhost:3000/api/orders', order)
+    //   .subscribe((responseOrderData)=>{
+    //     console.log("This is the message: " + responseOrderData.message);
+    //     const id = responseOrderData.orderId;
+    //     order.id = id;
+    //     this.orders.push(order);
+    //     this.updatedOrders.next([...this.orders]);
+    //   });
+  }
+
 
   getPostUpdateLister(){
     return this.updatedOrders.asObservable();

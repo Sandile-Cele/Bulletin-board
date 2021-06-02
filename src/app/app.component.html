@@ -1,10 +1,22 @@
-<main>
-  <div style="text-align:center">
+<mat-toolbar color="Secondary" class="navbar">
+  <span>
+    <p>Bulletin board.</p>
+  </span>
 
-    <h1 style="text-decoration: overline;">Order manager</h1>
+  <div>
+    <button mat-raised-button style="margin-right: 8px; margin-bottom: 8px;" routerLinkActive="router-link-active" color="primary" routerLink="/list">List posts</button>
+    <button mat-raised-button style="margin-right: 24px; margin-bottom: 8px;" routerLinkActive="router-link-active" color="primary" routerLink="/create">Create post</button>
 
-    <app-order-create></app-order-create>
-    <hr>
-    <app-order-placed></app-order-placed>
+    <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;"  color="Secondary" routerLink="/login" routerLinkActive="router-link-active">Login</button>
+    <button mat-stroked-button style="margin-right: 8px; margin-bottom: 8px;"  color="Secondary" routerLink="/signup" routerLinkActive="router-link-active">Sign up</button>
+    <button mat-raised-button  color="warn" (click)="signOut()">Sign out</button>
   </div>
+</mat-toolbar>
+<br>
+
+<main color="Secondary">
+  <router-outlet></router-outlet>
+
 </main>
+
+
