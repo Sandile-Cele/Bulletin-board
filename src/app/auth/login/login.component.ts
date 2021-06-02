@@ -23,15 +23,13 @@ export class LoginComponent implements OnInit {
     if(signupForm.invalid){
       return;
     }
-
+//sanitizer is being used
   var loginData: UserData = {
     username: null,
     email: this.sanitizer.sanitize(SecurityContext.HTML,  signupForm.value.inEmail),
     password: this.sanitizer.sanitize(SecurityContext.HTML,  signupForm.value.inPassword),
     role: null
   };
-
-//!!!!!!!!!!!!!!!!!!!!!!!! THIS IS ONLY SENDING PASSWORD AND EMAIL ONLY!!!!!!!!!!!!!!!!!
     this.authService.postLogin(loginData);
     alert("If all details are correct, you may be logged-in. Go to list post to check");
   }

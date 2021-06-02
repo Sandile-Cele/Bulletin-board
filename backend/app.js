@@ -1,6 +1,6 @@
 console.log("server has started");
 const express = require("express");
-const app = express();// const bodyParser = require("body-parser"); //This deprecated
+const app = express();
 const mongoose = require("mongoose");
 const fs = require("fs");
 
